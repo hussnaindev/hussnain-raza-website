@@ -508,9 +508,47 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
+    .hero-stat-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .hero-stat-card-top-left {}
+
     .hero-stat-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(45, 41, 38, 0.09);
+    }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--charcoal-light);
+      text-decoration: none;
+      padding: 7px 13px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--bg-warm);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .resume-btn:hover {
+      border-color: var(--charcoal-light);
+      background: var(--sand-200);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    .resume-btn svg {
+      flex-shrink: 0;
     }
 
     .hero-stat-num {
@@ -892,139 +930,167 @@
       border-color: rgba(204, 120, 92, 0.2);
     }
 
+    /* project tech logos */
+    .project-tech-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .project-tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-tech-item img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 3px rgba(45, 41, 38, 0.18));
+      transition: transform 0.2s;
+    }
+
+    .project-tech-item img:hover {
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    .project-tech-item span {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
     /* ─── SKILLS ─── */
     #skills {
       background: var(--bg-warm);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .skills-float-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
-    .skill-card {
+    .skills-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .skill-logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+    }
+
+    .skill-logo-bubble {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 26px;
-      opacity: 1;
-      transform: none;
-      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(45, 41, 38, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s;
     }
 
-    .skill-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .skill-card:hover {
-      box-shadow: 0 8px 28px rgba(45, 41, 38, 0.08);
+    .skill-logo-item:hover .skill-logo-bubble {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(45, 41, 38, 0.13);
       border-color: var(--sand-300);
     }
 
-    .skill-card-icon {
-      font-size: 20px;
-      margin-bottom: 12px;
+    .skill-logo-bubble img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(45, 41, 38, 0.12));
     }
 
-    .skill-card h3 {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--charcoal);
-      margin-bottom: 12px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-tag {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--charcoal-light);
-      background: var(--bg-warm);
-      border: 1px solid var(--border);
-      padding: 5px 11px;
-      border-radius: 6px;
-      transition: background 0.15s;
-    }
-
-    .skill-tag:hover {
-      background: var(--sand-200);
-    }
-
-    /* ─── EDUCATION ─── */
-    #education {
-      background: var(--charcoal);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    #education .section-label {
-      color: var(--sand-400);
-    }
-
-    #education .section-title {
-      color: var(--sand-50);
-    }
-
-    .edu-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .edu-degree {
-      font-family: 'Crimson Pro', serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--sand-50);
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-
-    .edu-institution {
+    .skill-logo-bubble .skill-logo-text {
       font-size: 15px;
-      color: var(--sand-300);
-      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--charcoal);
+      font-family: monospace;
     }
 
-    .edu-period {
-      font-size: 13px;
-      color: rgba(217, 196, 160, 0.6);
-    }
-
-    .edu-gpa-wrap {
+    .skill-logo-label {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.03em;
       text-align: center;
     }
 
-    .edu-gpa-num {
-      font-family: 'Crimson Pro', serif;
-      font-size: 52px;
-      font-weight: 300;
-      color: var(--terracotta);
-      line-height: 1;
-      display: block;
+    /* staggered float animations */
+    .skill-logo-item:nth-child(odd) .skill-logo-bubble {
+      animation: skillFloat1 4s ease-in-out infinite;
     }
 
-    .edu-gpa-label {
-      font-size: 11px;
-      color: var(--sand-400);
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      margin-top: 6px;
+    .skill-logo-item:nth-child(even) .skill-logo-bubble {
+      animation: skillFloat2 4.5s ease-in-out infinite;
     }
+
+    .skill-logo-item:nth-child(3n) .skill-logo-bubble {
+      animation: skillFloat3 3.8s ease-in-out infinite;
+    }
+
+    @keyframes skillFloat1 {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @keyframes skillFloat2 {
+
+      0%,
+      100% {
+        transform: translateY(-4px);
+      }
+
+      50% {
+        transform: translateY(3px);
+      }
+    }
+
+    @keyframes skillFloat3 {
+
+      0%,
+      100% {
+        transform: translateY(-2px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .skill-logo-item:hover .skill-logo-bubble {
+      animation: none !important;
+      transform: translateY(-6px);
+    }
+
 
     /* ─── CONTACT ─── */
     #contact {
@@ -1209,25 +1275,19 @@
         padding: 28px 24px;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
+      .skills-row {
+        gap: 18px;
       }
 
-      .edu-card {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 28px;
+      .skill-logo-bubble {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
       }
 
-      .edu-gpa-wrap {
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .edu-gpa-label {
-        margin-top: 0;
+      .skill-logo-bubble img {
+        width: 30px;
+        height: 30px;
       }
 
       .contact-links {
@@ -1277,8 +1337,28 @@
         font-size: 28px;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr;
+      .skills-row {
+        gap: 12px;
+      }
+
+      .skill-logo-bubble {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+      }
+
+      .skill-logo-bubble img {
+        width: 26px;
+        height: 26px;
+      }
+
+      .skill-logo-label {
+        font-size: 10px;
+      }
+
+      .project-tech-item img {
+        width: 28px;
+        height: 28px;
       }
 
       .project-info {
@@ -1289,13 +1369,6 @@
         font-size: 24px;
       }
 
-      .edu-card {
-        padding: 20px 16px;
-      }
-
-      .edu-gpa-num {
-        font-size: 40px;
-      }
 
       .section-title {
         font-size: 28px;
@@ -1438,7 +1511,6 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="mailto:hussnain.444.work@gmail.com" class="nav-cta">Get in touch</a></li>
     </ul>
@@ -1452,7 +1524,6 @@
     <a href="#experience" onclick="closeMenu()">Experience</a>
     <a href="#projects" onclick="closeMenu()">Projects</a>
     <a href="#skills" onclick="closeMenu()">Skills</a>
-    <a href="#education" onclick="closeMenu()">Education</a>
     <a href="#certificates" onclick="closeMenu()">Certificates</a>
   </div>
 
@@ -1523,8 +1594,21 @@
 
         <div class="hero-stat-row">
           <div class="hero-stat-card">
-            <div class="hero-stat-num">3<span>+</span></div>
-            <div class="hero-stat-label">Years of experience</div>
+            <div class="hero-stat-card-top">
+              <div class="hero-stat-card-top-left">
+                <div class="hero-stat-num">3<span>+</span></div>
+                <div class="hero-stat-label">Years of experience</div>
+              </div>
+              <a href="./assets/resume.pdf" download class="resume-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Resume
+              </a>
+            </div>
             <div class="hero-tech-logos">
               <img class="hero-tech-logo"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
@@ -1666,13 +1750,38 @@
             <li>Multiple listing types — rent, buy, commercial</li>
             <li>Fully responsive design across all devices</li>
           </ul>
-          <div class="project-stack">
-            <span class="stack-chip accent">React</span>
-            <span class="stack-chip accent">TypeScript</span>
-            <span class="stack-chip accent">Node.js</span>
-            <span class="stack-chip">MongoDB</span>
-            <span class="stack-chip">Google Cloud</span>
-            <span class="stack-chip">AWS</span>
+          <div class="project-tech-logos">
+            <div class="project-tech-item">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+                alt="React">
+              <span>React</span>
+            </div>
+            <div class="project-tech-item">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+                alt="TypeScript">
+              <span>TypeScript</span>
+            </div>
+            <div class="project-tech-item">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+                alt="Node.js">
+              <span>Node.js</span>
+            </div>
+            <div class="project-tech-item">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+                alt="MongoDB">
+              <span>MongoDB</span>
+            </div>
+            <div class="project-tech-item">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg"
+                alt="Google Cloud">
+              <span>GCloud</span>
+            </div>
+            <div class="project-tech-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+              <span>AWS</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1685,62 +1794,129 @@
     <div class="section-inner">
       <div class="section-label">Expertise</div>
       <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-card-icon">⚡</div>
-          <h3>Languages</h3>
-          <div class="skill-tags"><span class="skill-tag">JavaScript</span><span
-              class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span></div>
+      <div class="skills-float-wrap">
+        <!-- Row 1: Languages, Frontend, Backend -->
+        <div class="skills-row">
+          <!-- JavaScript -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                alt="JavaScript">
+            </div>
+            <span class="skill-logo-label">JavaScript</span>
+          </div>
+          <!-- TypeScript -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+                alt="TypeScript">
+            </div>
+            <span class="skill-logo-label">TypeScript</span>
+          </div>
+          <!-- React -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+                alt="React">
+            </div>
+            <span class="skill-logo-label">React</span>
+          </div>
+          <!-- Angular -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg"
+                alt="Angular">
+            </div>
+            <span class="skill-logo-label">Angular</span>
+          </div>
+          <!-- Node.js -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+                alt="Node.js">
+            </div>
+            <span class="skill-logo-label">Node.js</span>
+          </div>
+          <!-- Express -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
+                alt="Express.js">
+            </div>
+            <span class="skill-logo-label">Express.js</span>
+          </div>
+          <!-- Python -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                alt="Python">
+            </div>
+            <span class="skill-logo-label">Python</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <div class="skill-card-icon">🖥️</div>
-          <h3>Frontend</h3>
-          <div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">Angular</span><span
-              class="skill-tag">HTML / CSS</span></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-icon">⚙️</div>
-          <h3>Backend</h3>
-          <div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span><span
-              class="skill-tag">.NET Core</span><span class="skill-tag">RESTful APIs</span></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-icon">🗄️</div>
-          <h3>Databases</h3>
-          <div class="skill-tags"><span class="skill-tag">MongoDB</span><span class="skill-tag">MySQL</span><span
-              class="skill-tag">PostgreSQL</span><span class="skill-tag">BigQuery</span><span
-              class="skill-tag">Sequelize ORM</span></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-icon">☁️</div>
-          <h3>Cloud & Infrastructure</h3>
-          <div class="skill-tags"><span class="skill-tag">AWS</span><span class="skill-tag">Google Cloud</span><span
-              class="skill-tag">GCP BigQuery</span></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-icon">🛠️</div>
-          <h3>Tools & Methods</h3>
-          <div class="skill-tags"><span class="skill-tag">Git</span><span class="skill-tag">Agile / Scrum</span><span
-              class="skill-tag">Headless Browsers</span><span class="skill-tag">Proxy Rotation</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-inner">
-      <div class="section-label">Academic Background</div>
-      <h2 class="section-title">Education</h2>
-      <div class="edu-card">
-        <div>
-          <div class="edu-degree">B.Sc. Computer Sciences</div>
-          <div class="edu-institution">University of Engineering &amp; Technology</div>
-          <div class="edu-period">Oct 2019 — May 2023 · Lahore, Pakistan</div>
-        </div>
-        <div class="edu-gpa-wrap">
-          <span class="edu-gpa-num">3.5</span>
-          <div class="edu-gpa-label">CGPA / 4.0</div>
+        <!-- Row 2: Databases, Cloud, Tools -->
+        <div class="skills-row">
+          <!-- MongoDB -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+                alt="MongoDB">
+            </div>
+            <span class="skill-logo-label">MongoDB</span>
+          </div>
+          <!-- MySQL -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
+                alt="MySQL">
+            </div>
+            <span class="skill-logo-label">MySQL</span>
+          </div>
+          <!-- PostgreSQL -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+                alt="PostgreSQL">
+            </div>
+            <span class="skill-logo-label">PostgreSQL</span>
+          </div>
+          <!-- Google Cloud -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg"
+                alt="Google Cloud">
+            </div>
+            <span class="skill-logo-label">GCP</span>
+          </div>
+          <!-- AWS -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+            </div>
+            <span class="skill-logo-label">AWS</span>
+          </div>
+          <!-- Git -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+            </div>
+            <span class="skill-logo-label">Git</span>
+          </div>
+          <!-- .NET -->
+          <div class="skill-logo-item">
+            <div class="skill-logo-bubble">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg"
+                alt=".NET Core">
+            </div>
+            <span class="skill-logo-label">.NET Core</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1889,6 +2065,7 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
@@ -1919,3 +2096,14 @@
     document.querySelectorAll('.cert-card').forEach((el, i) => { el.dataset.delay = i * 80; observer.observe(el); });
 
     const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--charcoal)' : '';
+      });
+    });
+  </script>
+</body>
+
+</html>
